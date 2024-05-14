@@ -34,14 +34,12 @@
                 .then(function(data) {
 
                     for (let objeto of data.refresco) {
-
+                        
                         let miLista = document.getElementById("lista");
                         let liMarca = document.createElement("li");
-
                        
                         liMarca.textContent = objeto.marca;
 
-                        
                         miLista.appendChild(liMarca);
                     }
 
@@ -101,19 +99,16 @@
             })
             .then(function(data) {
                 for (let objeto of data.refresco) {
-                    // Crear una lista desordenada para cada objeto
+                    
                     let miLista = document.createElement("ol");
-
                     miLista.style.borderBottom = "20px";
 
-                    
                     let liMarca = document.createElement("li");
                     let liPrecio = document.createElement("li");
                     let liCapacidad = document.createElement("li");
                     let liCalorias = document.createElement("li");
                     let liComentario = document.createElement("li");
 
-                    
                     liMarca.textContent = "Marca: " + objeto.marca;
                     liPrecio.textContent = "Precio: " + objeto.precio;
                     liCapacidad.textContent = "Capacidad: " + objeto.capacidad;
@@ -126,7 +121,6 @@
                     miLista.appendChild(liCalorias);
                     miLista.appendChild(liComentario);
 
-                    // Agregar la lista principal al elemento contenedor en el HTML
                     lista.appendChild(miLista);
 
                     let saltoLinea = document.createElement("br");
