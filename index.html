@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li{
+            border-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista Productos</h1>
+
+    <button id="boton">Lista Nombres</button>
+    <button id="boton2">Lista Productos</button>
+    <button id="boton3">Lista Producto con Comentarios</button>
+    <ol id="lista">
+    </ol>
+    <script>
+        document.getElementById("boton").onclick = Nombres;
+        document.getElementById("boton2").onclick = Producto;
+        document.getElementById("boton3").onclick = ProductoComentarios;
+
+        function Nombres() {
+            fetch('refresco.json')
+                .then(function(response) {
+                    if (!response.ok) {
+                        throw new Error('No se pudo cargar el archivo JSON.');
+                    }
+                    return response.json(); 
+                })
+                .then(function(data) {
+
+                    for (let objeto of data.refresco) {
+
+                        let miLista = document.getElementById("lista");
+                        let liMarca = document.createElement("li");
+
+                        // Asignamos los valores de las propiedades a los elementos de lista
+                        liMarca.textContent = objeto.marca;
+
+                        // Agregamos los elementos de lista a la lista ordenada
+                        miLista.appendChild(liMarca);
+                    }
+
+                })
+                .catch(function(error) {
+                    console.error('Se produjo un error al cargar el archivo JSON:', error);
+                });
+        }
+
+        function Producto(){
+            fetch('refresco.json')
+            .then(function(response) {
+                if (!response.ok) {
+                    throw new Error('No se pudo cargar el archivo JSON.');
+                }
+                return response.json();
+            })
+            .then(function(data) {
+                for (let objeto of data.refresco) {
+                    
+                    let miLista = document.createElement("ol");
+
+                    let liMarca = document.createElement("li");
+                    let liPrecio = document.createElement("li");
+                    let liCapacidad = document.createElement("li");
+                    let liCalorias = document.createElement("li");
+
+                    liMarca.textContent = "Marca: " + objeto.marca;
+                    liPrecio.textContent = "Precio: " + objeto.precio;
+                    liCapacidad.textContent = "Capacidad: " + objeto.capacidad;
+                    liCalorias.textContent = "Calorías: " + objeto.calorias;
+
+                    miLista.appendChild(liMarca);
+                    miLista.appendChild(liPrecio);
+                    miLista.appendChild(liCapacidad);
+                    miLista.appendChild(liCalorias);
+
+                    lista.appendChild(miLista);
+
+                    let saltoLinea = document.createElement("br");
+                    lista.appendChild(saltoLinea);
+                }
+            })
+            .catch(function(error) {
+                console.error('Se produjo un error al cargar el archivo JSON:', error);
+            });
+    }
+
+        function ProductoComentarios() {
+
+        fetch('refresco.json')
+            .then(function(response) {
+                if (!response.ok) {
+                    throw new Error('No se pudo cargar el archivo JSON.');
+                }
+                return response.json();
+            })
+            .then(function(data) {
+                for (let objeto of data.refresco) {
+                    // Crear una lista desordenada para cada objeto
+                    let miLista = document.createElement("ol");
+
+                    miLista.style.borderBottom = "20px";
+
+                    // Crear elementos de lista para cada propiedad
+                    let liMarca = document.createElement("li");
+                    let liPrecio = document.createElement("li");
+                    let liCapacidad = document.createElement("li");
+                    let liCalorias = document.createElement("li");
+                    let liComentario = document.createElement("li");
+
+                    // Asignar los valores de las propiedades a los elementos de lista
+                    liMarca.textContent = "Marca: " + objeto.marca;
+                    liPrecio.textContent = "Precio: " + objeto.precio;
+                    liCapacidad.textContent = "Capacidad: " + objeto.capacidad;
+                    liCalorias.textContent = "Calorías: " + objeto.calorias;
+                    liComentario.textContent = "Comentarios: " + objeto.comentarios;
+
+                    miLista.appendChild(liMarca);
+                    miLista.appendChild(liPrecio);
+                    miLista.appendChild(liCapacidad);
+                    miLista.appendChild(liCalorias);
+                    miLista.appendChild(liComentario);
+
+                    // Agregar la lista principal al elemento contenedor en el HTML
+                    lista.appendChild(miLista);
+
+                    let saltoLinea = document.createElement("br");
+                    lista.appendChild(saltoLinea);
+                }
+            })
+            .catch(function(error) {
+                console.error('Se produjo un error al cargar el archivo JSON:', error);
+            });
+    }
+
+    </script>
+</body>
+</html>
