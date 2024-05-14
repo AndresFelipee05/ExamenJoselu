@@ -1,0 +1,34 @@
+{
+    "refresco" : [
+    {
+    "marca" : "Coca-Cola",
+    "precio" :"1,50€",
+    "capacidad" : "250cl",
+    "calorias" : "200kl",
+    "comentarios" : ["Muy rica, pero le han subido el precio", " Mucha espuma para mi gusto"]
+    },
+
+    {
+    "marca" : "Fanta",
+    "precio" : "1,50€",
+    "capacidad" : "250cl",
+    "calorias" : "150kl",
+    "comentarios" : ["Sabe con un jarabe, qué asco", " Es mi bebida favorita desde pequeño"]
+    },
+
+    {
+    "marca" : "Pepsi",
+    "precio" :"3€",
+    "capacidad" : "250cl",
+    "calorias" : "500kl",
+    "comentarios" : ["Sabe igual que la Coca-Cola y es más cara", " Es mejor que la Coca-Cola porque tiene mucha menos espuma"]
+    },
+
+    {
+    "marca" : "Monster",
+    "precio" :"2€",
+    "capacidad" : "500cl",
+    "calorias" : "700kl",
+    "comentarios" : ["Muy rico, me da energía para ir al gimnasio", " Contiene demasiado azúcar, es muy perjudicial para la salud"]
+    }]
+}
